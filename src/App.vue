@@ -1,6 +1,5 @@
 <template>
-  <h1>Hello World</h1>
-  <MainHeader />
+  <MainHeader title="Hello John"/>
 </template>
 
 <script lang="ts">
