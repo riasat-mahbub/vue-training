@@ -31,7 +31,7 @@ import { ButtonGeneric, MainHeader, AllTasks } from "./components";
         id: 2,
         text: "k thnx bye",
         day: "30th February, 2069",
-        reminder: true,
+        reminder: false,
       },
       {
         id: 3,
