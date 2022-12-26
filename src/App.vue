@@ -1,14 +1,16 @@
 <template>
-  <MainHeader title="Hello John"/>
+  <MainHeader title="Hello John" />
+  <ButtonGeneric btn_text="This is a button" />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import MainHeader from "./components/MainHeader.vue";
+import { ButtonGeneric, MainHeader } from "./components";
 
 @Options({
   components: {
     MainHeader,
+    ButtonGeneric,
   },
 })
 export default class App extends Vue {}
