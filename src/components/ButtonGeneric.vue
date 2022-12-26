@@ -1,5 +1,7 @@
 <template>
-  <button :style="{ background: color }">{{ btn_text }}</button>
+  <button @click="onClick()" :style="{ background: color }">
+    {{ btn_text }}
+  </button>
 </template>
 
 <script>
@@ -15,6 +17,15 @@ export default {
       default: "#ffffff",
     },
   },
+  methods: {
+    onClick() {
+      let btns = document.getElementsByTagName("button");
+      for (let btn of btns) {
+        btn.classList.toggle("btn-active");
+      }
+      console.log("click");
+    },
+  },
 };
 </script>
 
@@ -26,5 +37,7 @@ button {
   padding: 1em;
 }
 .btn-active {
+  background-color: rgb(100, 100, 100) !important;
+  color: rgb(232, 224, 224);
 }
 </style>
