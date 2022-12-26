@@ -1,6 +1,6 @@
 <template>
   <MainHeader title="Hello John" />
-  <ButtonGeneric btn_text="This is a button" />
+  <ButtonGeneric btn_text="This is a button" color="rgb(40,40,40)" />
 </template>
 
 <script lang="ts">
