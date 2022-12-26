@@ -7,6 +7,11 @@
 <script>
 export default {
   name: "MainHeader",
-  props:["title"]
+  props:{
+    title:{
+      type: String,
+      default: "Hello, this is the Main Header"
+    }
+  }
 };
 </script>
