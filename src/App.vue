@@ -1,7 +1,11 @@
 <template>
   <MainHeader title="Hello John" />
   <ButtonGeneric btn_text="This is a button" color="rgb(40,40,40)" />
-  <AllTasks :tasks="tasks" @delete-task="deleteSingleTask" />
+  <AllTasks
+    :tasks="tasks"
+    @delete-task="deleteSingleTask"
+    @toggle-reminder="toggleReminder"
+  />
 </template>
 
 <script lang="ts">
@@ -21,9 +25,17 @@ import { ButtonGeneric, MainHeader, AllTasks } from "./components";
   },
   methods: {
     deleteSingleTask(id: number) {
-      console.log("Ta" + id);
       this.tasks = this.tasks.filter((task: any) => {
         return task.id !== id;
+      });
+    },
+    toggleReminder(id: number) {
+      this.tasks = this.tasks.map((task: any) => {
+        if (task.id === id) {
+          return { ...task, reminder: !task.reminder };
+        } else {
+          return task;
+        }
       });
     },
   },
