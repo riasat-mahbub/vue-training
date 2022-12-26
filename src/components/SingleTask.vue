@@ -1,7 +1,8 @@
 <template>
-  <div :class="[task.reminder ? 'reminder' : '', single_task]">
+  <div :class="[task.reminder ? 'reminder' : '', 'single_task']">
     <h2>{{ task.text }}</h2>
     <h4>{{ task.day }}</h4>
+    <i class="fa fa-times"> </i>
   </div>
 </template>
 
@@ -14,12 +15,17 @@ export default {
 </script>
 
 <style scoped>
-.single-task {
+.reminder {
+  border-left: 4px solid red;
+}
+
+.single_task {
   background-color: rgb(50, 50, 50);
   color: whitesmoke;
   padding: 0.5em 0em;
   margin: 1em 1em;
   border-radius: 8px;
+  position: relative;
 }
 
 .single_task > * {
@@ -27,7 +33,11 @@ export default {
   text-align: left;
 }
 
-.reminder {
-  border: 2px solid red;
+.fa-times {
+  padding: 1em;
+  color: crimson;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 </style>
