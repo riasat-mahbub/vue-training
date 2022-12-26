@@ -1,7 +1,7 @@
 <template>
   <MainHeader title="Hello John" />
   <ButtonGeneric btn_text="This is a button" color="rgb(40,40,40)" />
-  <AllTasks :tasks="tasks" />
+  <AllTasks :tasks="tasks" @delete-task="deleteSingleTask" />
 </template>
 
 <script lang="ts">
@@ -18,6 +18,11 @@ import { ButtonGeneric, MainHeader, AllTasks } from "./components";
     return {
       tasks: [],
     };
+  },
+  methods: {
+    deleteSingleTask(id: number) {
+      console.log(id);
+    },
   },
   created() {
     this.tasks = [
