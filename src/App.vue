@@ -21,7 +21,10 @@ import { ButtonGeneric, MainHeader, AllTasks } from "./components";
   },
   methods: {
     deleteSingleTask(id: number) {
-      console.log(id);
+      console.log("Ta" + id);
+      this.tasks = this.tasks.filter((task: any) => {
+        return task.id !== id;
+      });
     },
   },
   created() {
