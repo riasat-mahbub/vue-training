@@ -1,6 +1,7 @@
 <template>
   <MainHeader title="Hello John" />
   <ButtonGeneric btn_text="This is a button" color="rgb(40,40,40)" />
+  <AddTask />
   <AllTasks
     :tasks="tasks"
     @delete-task="deleteSingleTask"
@@ -10,13 +11,14 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { ButtonGeneric, MainHeader, AllTasks } from "./components";
+import { ButtonGeneric, MainHeader, AllTasks, AddTask } from "./components";
 
 @Options({
   components: {
     MainHeader,
     ButtonGeneric,
     AllTasks,
+    AddTask,
   },
   data() {
     return {
