@@ -1,7 +1,7 @@
 <template>
   <MainHeader title="Hello John" />
   <ButtonGeneric btn_text="This is a button" color="rgb(40,40,40)" />
-  <AddTask />
+  <AddTask @add-task="addTask" />
   <AllTasks
     :tasks="tasks"
     @delete-task="deleteSingleTask"
@@ -26,6 +26,9 @@ import { ButtonGeneric, MainHeader, AllTasks, AddTask } from "./components";
     };
   },
   methods: {
+    addTask(task: any) {
+      this.tasks = [...this.tasks, task];
+    },
     deleteSingleTask(id: number) {
       this.tasks = this.tasks.filter((task: any) => {
         return task.id !== id;
