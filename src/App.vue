@@ -1,7 +1,12 @@
 <template>
-  <MainHeader title="Hello John" />
-  <ButtonGeneric btn_text="This is a button" color="rgb(40,40,40)" />
-  <AddTask @add-task="addTask" />
+  <MainHeader
+    title="Hello John"
+    @add-task-toggle="toggleAddTask"
+    :showAddTask="showAddTask"
+  />
+  <div v-show="showAddTask">
+    <AddTask @add-task="addTask" />
+  </div>
   <AllTasks
     :tasks="tasks"
     @delete-task="deleteSingleTask"
@@ -11,23 +16,27 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { ButtonGeneric, MainHeader, AllTasks, AddTask } from "./components";
+import { ButtonAddTask, MainHeader, AllTasks, AddTask } from "./components";
 
 @Options({
   components: {
     MainHeader,
-    ButtonGeneric,
+    ButtonAddTask,
     AllTasks,
     AddTask,
   },
   data() {
     return {
       tasks: [],
+      showAddTask: false,
     };
   },
   methods: {
     addTask(task: any) {
       this.tasks = [...this.tasks, task];
+    },
+    toggleAddTask() {
+      this.showAddTask = !this.showAddTask;
     },
     deleteSingleTask(id: number) {
       this.tasks = this.tasks.filter((task: any) => {
